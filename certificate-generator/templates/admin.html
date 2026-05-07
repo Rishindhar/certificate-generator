@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+
+<h2>Admin Panel</h2>
+
+<input type="text" id="search" placeholder="Search..." onkeyup="filterTable()">
+
+<table border="1" id="table">
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Event</th>
+        <th>Date</th>
+        <th>ID</th>
+    </tr>
+
+    {% for r in records %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+        <td>{{ r[3] }}</td>
+        <td>{{ r[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+function filterTable() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let rows = document.querySelectorAll("#table tr");
+
+    rows.forEach((row, index) => {
+        if (index === 0) return;
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+    });
+}
+</script>
+
+</body>
+</html>

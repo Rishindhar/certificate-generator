@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Generator</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>🎓 Certificate Generator</h2>
+        <p class="subtitle">Generate your certificate instantly</p>
+
+        <form action="/generate" method="post">
+            <input type="text" name="name" placeholder="Enter Full Name" required>
+
+            <input type="text" name="role" placeholder="Role (Intern/Volunteer)" required>
+
+            <input type="text" name="event" placeholder="Event / Program Name" required>
+
+            <input type="date" name="date" required>
+
+            <button type="submit">Generate Certificate</button>
+        </form>
+    </div>
+
+</body>
+</html>
